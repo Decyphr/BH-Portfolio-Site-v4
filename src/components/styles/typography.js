@@ -5,7 +5,7 @@ export const HeroText = styled.h1`
   font-weight: 800;
   font-size: 8rem;
   color: ${props => props.color || props.theme.colors.black};
-  margin: 25px 0;
+  margin: 15px 0;
 `;
 
 export const Paragraph = styled.p`
