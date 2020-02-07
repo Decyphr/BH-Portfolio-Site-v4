@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { RichText } from "prismic-reactjs";
 
 import Layout from "../components/layout";
@@ -39,14 +39,12 @@ function IndexPage({ data }) {
           <h1>Enhance.</h1>
         </div>
       </FlexBox>
-      {/*
-      projects.map(project => (
+      {projects.map(project => (
         <div>
           <h1>{RichText.render(project.node.project_title)}</h1>
           <img src={project.node.project_image.url} alt={project.project_title} />
         </div>
-      ))
-      */}
+      ))}
     </Layout>
   );
 }

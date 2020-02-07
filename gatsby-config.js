@@ -42,8 +42,6 @@ module.exports = {
       options: {
         repositoryName: process.env.PRISMIC_REPO_NAME, // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_ACCESS_TOKEN, // (optional API access token)
-        path: '/preview', // (optional preview path. Default: /preview)
-        previews: true, // (optional, activated Previews. Default: false)
         /* 
         pages: [{ // (optional, builds pages dynamically)
           type: 'Article',         // TypeName from prismic
