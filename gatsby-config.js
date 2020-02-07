@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const linkResolver = require('./src/utils/linkResolver');
 
 module.exports = {
   siteMetadata: {
@@ -44,7 +43,6 @@ module.exports = {
       options: {
         repositoryName: process.env.PRISMIC_REPO_NAME, // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_ACCESS_TOKEN, // (optional API access token)
-        linkResolver: ({ node, key, value }) => doc => linkResolver(doc)
       }
     },
     `gatsby-plugin-styled-components`
