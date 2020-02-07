@@ -38,10 +38,11 @@ module.exports = {
     },
     {
       // Prismic Config
-      resolve: 'gatsby-source-prismic-graphql',
+      resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: process.env.PRISMIC_REPO_NAME, // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_ACCESS_TOKEN, // (optional API access token)
+        linkResolver: ({ node, key, value }) => post => `/${post.uid}`
       }
     },
     `gatsby-plugin-styled-components`

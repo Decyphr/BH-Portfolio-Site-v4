@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { RichText } from "prismic-reactjs";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -9,21 +8,27 @@ import HeroSection from "../components/HomePage/HeroSection";
 // retrieve all project titles and images from prismic
 export const query = graphql`
 {
-  prismic {
-    allProjects {
-      edges {
-        node {
-          project_title 
-          project_image
+  allPrismicProject {
+    edges {
+      node {
+        data {
+          project_title {
+            text
+          }
+          project_image {
+            url
+            alt
+          }
         }
       }
     }
   }
 }
+
 `;
 
 function IndexPage({ data }) {
-  const projects = data.prismic.allProjects.edges;
+  const projects = data.allPrismicProject.edges;
 
   if (!projects) return null;
 
@@ -31,13 +36,13 @@ function IndexPage({ data }) {
     <Layout pageLink="contact">
       <SEO title="Home" />
       <HeroSection />
-      {/*projects.map(project => (
+      {projects.map(project => (
         <div>
-          <h1>{RichText.render(project.node.project_title)}</h1>
-          <img src={project.node.project_image.url} alt={project.project_title} />
+          <h1>{project.node.data.project_title.text}</h1>
+          <img src={project.node.data.project_image.url} alt={project.node.data.project_image.alt} />
         </div>
-      ))*/}
-    </Layout >
+      ))}
+    </Layout>
   );
 }
 
