@@ -23,4 +23,11 @@ export const globalCSS = css`
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.fonts.header};
   }
+
+  hr {
+    width: 65%;
+    max-width: 165px;
+    height: 10px;
+    background-color: ${({ theme }) => theme.colors.black}
+  }
 `;

@@ -9,9 +9,7 @@ export const theme = {
   },
 
   fonts: {
-    header: `"Circular", serif`,
+    header: `"Circular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
     paragraph: `'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`
   }
-};;
-
-// -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-
+};

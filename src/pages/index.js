@@ -4,8 +4,7 @@ import { RichText } from "prismic-reactjs";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Image from "../components/image";
-import { FlexBox } from "../components/styles/containers";
+import HeroSection from "../components/HomePage/HeroSection";
 
 // retrieve all project titles and images from prismic
 export const query = graphql`
@@ -31,21 +30,14 @@ function IndexPage({ data }) {
   return (
     <Layout pageLink="contact">
       <SEO title="Home" />
-      <FlexBox>
-        <Image />
-        <div>
-          <h1>Design.</h1>
-          <h1>Develop.</h1>
-          <h1>Enhance.</h1>
-        </div>
-      </FlexBox>
-      {projects.map(project => (
+      <HeroSection />
+      {/*projects.map(project => (
         <div>
           <h1>{RichText.render(project.node.project_title)}</h1>
           <img src={project.node.project_image.url} alt={project.project_title} />
         </div>
-      ))}
-    </Layout>
+      ))*/}
+    </Layout >
   );
 }
 
