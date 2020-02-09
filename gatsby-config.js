@@ -39,10 +39,12 @@ module.exports = {
     },
     {
       // Prismic Config
-      resolve: 'gatsby-source-prismic',
+      resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: process.env.PRISMIC_REPO_NAME, // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_ACCESS_TOKEN, // (optional API access token)
+        // path: '/preview', // (optional, default: /preview)
+        // previews: true, // (optional, default: false)
       }
     },
     `gatsby-plugin-styled-components`

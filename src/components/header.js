@@ -37,8 +37,8 @@ function Header({ pageLink }) {
 };
 
 const NavBar = styled.header`
-  background: white;
   padding: 55px 100px;
+  z-index: 99;
 `;
 
 const Container = styled.div`

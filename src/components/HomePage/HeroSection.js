@@ -11,7 +11,7 @@ import { theme } from "../styles/theme";
 
 const HeroSection = () => {
   return (
-    <FlexBox>
+    <FlexBox style={{ margin: '0 0 100px 0' }}>
       <div style={{ position: "relative", top: 0, left: 0 }}>
         <Image />
         <CircleSVG />
@@ -23,7 +23,7 @@ const HeroSection = () => {
         <HeroText>Design.</HeroText>
         <HeroText>Develop.</HeroText>
         <HeroText color={theme.colors.purple}>Enhance.</HeroText>
-        <hr />
+        <hr style={{ margin: 0 }} />
         <Paragraph>I design and build experiences that are simple, gorgeous, and impactful.</Paragraph>
       </div>
     </FlexBox>

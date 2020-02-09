@@ -8,16 +8,16 @@ import HeroSection from "../components/HomePage/HeroSection";
 // retrieve all project titles and images from prismic
 export const query = graphql`
 {
-  allPrismicProject {
-    edges {
-      node {
-        data {
-          project_title {
-            text
-          }
-          project_image {
-            url
-            alt
+  prismic {
+    allProjects {
+      edges {
+        node {
+          project_title
+          project_image
+          project_link {
+            ... on PRISMIC__ExternalLink {
+              url
+            }
           }
         }
       }
@@ -27,8 +27,10 @@ export const query = graphql`
 
 `;
 
+
+
 function IndexPage({ data }) {
-  const projects = data.allPrismicProject.edges;
+  const projects = data.prismic.allProjects.edges;
 
   if (!projects) return null;
 
@@ -38,8 +40,8 @@ function IndexPage({ data }) {
       <HeroSection />
       {projects.map(project => (
         <div>
-          <h1>{project.node.data.project_title.text}</h1>
-          <img src={project.node.data.project_image.url} alt={project.node.data.project_image.alt} />
+          <h1>{project.node.project_title.text}</h1>
+          <img src={project.node.project_image.url} alt={project.node.project_image.alt} style={{ maxWidth: 400 }} />
         </div>
       ))}
     </Layout>

@@ -10,7 +10,6 @@ import PropTypes from "prop-types";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import Header from "./header";
-import "./layout.css";
 import { theme } from "./styles/theme";
 import { globalCSS } from "./styles/globalCSS";
 
