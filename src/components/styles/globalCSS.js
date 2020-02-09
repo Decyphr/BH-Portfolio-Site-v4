@@ -11,10 +11,10 @@ export const globalCSS = css`
 
   html {
     font-size: 10px;
+    box-sizing: border-box;
   }
 
   body {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: ${({ theme }) => theme.fonts.header};

@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,6 +39,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
+    /* {
       // Prismic Config
       resolve: 'gatsby-source-prismic-graphql',
       options: {
@@ -46,8 +54,7 @@ module.exports = {
         // path: '/preview', // (optional, default: /preview)
         // previews: true, // (optional, default: false)
       }
-    },
-    `gatsby-plugin-styled-components`
+    }, */
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

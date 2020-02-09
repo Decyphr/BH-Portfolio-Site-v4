@@ -4,33 +4,29 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import HeroSection from "../components/HomePage/HeroSection";
+import AboutSection from "../components/HomePage/AboutSection";
 
 // retrieve all project titles and images from prismic
 export const query = graphql`
 {
-  prismic {
-    allProjects {
-      edges {
-        node {
-          project_title
-          project_image
-          project_link {
-            ... on PRISMIC__ExternalLink {
-              url
-            }
+  allContentfulProject {
+    edges {
+      node {
+        title
+        url
+        image {
+          file {
+            url
           }
         }
       }
     }
   }
 }
-
 `;
 
-
-
-function IndexPage({ data }) {
-  const projects = data.prismic.allProjects.edges;
+const IndexPage = ({ data }) => {
+  const projects = data.allContentfulProject.edges;
 
   if (!projects) return null;
 
@@ -38,14 +34,15 @@ function IndexPage({ data }) {
     <Layout pageLink="contact">
       <SEO title="Home" />
       <HeroSection />
+      <AboutSection />
       {projects.map(project => (
         <div>
-          <h1>{project.node.project_title.text}</h1>
-          <img src={project.node.project_image.url} alt={project.node.project_image.alt} style={{ maxWidth: 400 }} />
+          <h1>{project.node.title}</h1>
+          <img src={project.node.image.file.url} alt={project.node.title} style={{ maxWidth: 400 }} />
         </div>
       ))}
     </Layout>
   );
-}
+};
 
 export default IndexPage;
